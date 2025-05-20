@@ -1,0 +1,491 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % o un altro font moderno
+\usepackage[italian]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs} % For better tables
+\usepackage{hyperref} % For clickable links
+
+% --- Theme ---
+\usetheme{Madrid} % Puoi provare altri temi come Warsaw Madrid, Montpellier, Boadilla, etc.
+\usecolortheme{dolphin} % Puoi provare beaver, seahorse, etc.
+
+% ---  Branding (Semplificato) ---
+% Se hai un logo  (es. overnet_logo.png), puoi usarlo:
+% \logo{\includegraphics[height=0.7cm]{overnet_logo.png}\vspace{2pt}}
+% Altrimenti, un testo:
+\logo{\texttt{Linuxservizi.}\hspace*{2em}}
+\setbeamercolor{title}{bg=red!75!black, fg=white}
+\setbeamercolor{frametitle}{bg=red!75!black, fg=white}
+\setbeamercolor{sidebar}{bg=red!60!black, fg=white}
+\setbeamercolor{palette sidebar primary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar tertiary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+\setbeamercolor{section in sidebar}{fg=white}
+\setbeamercolor{subsection in sidebar}{fg=white}
+\setbeamercolor{subsubsection in sidebar}{fg=white}
+\setbeamercolor{title in sidebar}{fg=red!20!white, bg=red!80!black}
+\setbeamercolor{author in sidebar}{fg=white}
+\setbeamercolor{institute in sidebar}{fg=white}
+\setbeamercolor{date in sidebar}{fg=white}
+
+
+\title{Awareness Cyber Security}
+\subtitle{Corso di consapevolezza sulla Sicurezza Informatica}
+\author{Linuxservizi}
+\institute{www.corsilinux.it}
+\date{Settembre Ottobre 2025}
+
+% --- Footer con copyright (come nei PDF) ---
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+    \centering \tiny{Le informazioni contenute in questo documento sono di proprietà di linuxservizi e delle altre società ove indicato. 
+    Questo documento può essere riprodotto, pubblicato o distribuito secondo la licenza Creative Commons.} \par
+}
+
+
+\begin{document}
+
+% --- Title Page ---
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% --- Table of Contents ---
+\begin{frame}
+  \frametitle{Indice Degli Argomenti}
+  \tableofcontents
+\end{frame}
+
+% --- SECTION 1 ---
+\section{Introduzione alla Sicurezza Informatica e Concetti Fondamentali}
+
+\begin{frame}
+  \frametitle{Obiettivo principale della sicurezza informatica}
+  \begin{itemize}
+    \item \textbf{Definizione di sicurezza informatica e il suo scopo:}
+    \begin{itemize}
+        \item Proteggere i sistemi informatici e i dati da accessi non autorizzati, danni o furti (PDF1, Slide 3).
+        \item L'insieme dei mezzi e delle tecnologie tesi alla protezione dei sistemi informatici in termini di disponibilità, confidenzialità e integrità dei beni o asset informatici (PDF2, Slide 69).
+    \end{itemize}
+    \item \textbf{Protezione di risorse informatiche:} hardware, software, dati e reti.
+    \item \textbf{Minimizzare rischi e vulnerabilità} nel cyberspazio.
+    \begin{itemize}
+        \item Rischio = Minaccia x Vulnerabilità x Impatto (PDF2, Slide 16).
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Cenni storici e Figure chiave}
+    \begin{itemize}
+        \item Evoluzione della sicurezza informatica dalle origini a oggi.
+        \item Principali eventi e attacchi che hanno plasmato il campo.
+        \item Panoramica delle figure chiave e delle tecnologie emergenti.
+        \item \textit{(Dettagli storici non prominenti nei PDF forniti, si consiglia di integrare da fonti esterne se necessario)}
+    \end{itemize}
+    \pause
+    \begin{block}{La catena della sicurezza (PDF2, Slide 4)}
+        Coinvolge: Technology, Processes, People. L'anello più debole spesso sono le persone.
+    \end{block}
+    \pause
+    \begin{block}{Sicurezza: terra di compromessi (PDF2, Slide 5)}
+        Esiste un trade-off tra il livello di Sicurezza e l'Usabilità di un sistema.
+    \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Concetti fondamentali: La Triade CIA}
+  \begin{itemize}
+    \item L'obiettivo principale della sicurezza informatica ruota attorno a: (PDF1, Slide 3; PDF2, Slide 3)
+    \item \textbf{C - Confidenzialità (Confidentiality):}
+    \begin{itemize}
+        \item Protezione delle informazioni dall'accesso non autorizzato.
+        \item Le informazioni non devono essere diffuse a chi non è autorizzato (PDF2, Slide 48).
+    \end{itemize}
+    \item \textbf{I - Integrità (Integrity):}
+    \begin{itemize}
+        \item Garanzia che le informazioni non siano alterate o corrotte.
+        \item Le informazioni devono essere complete e senza modifiche rispetto all'originale (PDF2, Slide 48).
+    \end{itemize}
+    \item \textbf{A - Disponibilità (Availability):}
+    \begin{itemize}
+        \item Assicurare che le risorse siano accessibili quando necessario.
+        \item Le informazioni devono essere disponibili al momento del bisogno (PDF2, Slide 48).
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Concetti fondamentali (Continua)}
+  \begin{itemize}
+    \item \textbf{Autenticazione:} Processo o azione per verificare l’identità di un utente o di un processo. Persone e processi prima di accedere ad un sistema o oggetto vanno identificati univocamente (PDF2, Slide 86).
+    \item \textbf{Autorizzazione:} Definisce il processo per garantire i permessi ad un utente o oggetto per eseguire o per ottenere qualcosa (PDF2, Slide 92).
+    \item \textbf{Non-Ripudio:} Assicura che una parte in una transazione non possa negare di aver ricevuto o inviato un messaggio/transazione (correlato alla firma digitale, PDF2, Slide 83).
+    \pause
+    \item \textbf{Vulnerabilità:} Una debolezza nel Sistema che può essere utilizzata come punto di accesso (PDF2, Slide 35).
+    \item \textbf{Minacce (Threat):} Potenziale violazione della sicurezza (PDF2, Slide 35).
+    \item \textbf{Rischi:} Probabilità che una minaccia sfrutti una vulnerabilità causando un impatto (PDF2, Slide 16).
+    \item \textbf{Contromisure:} Azioni, dispositivi, procedure o tecniche che riducono una minaccia, una vulnerabilità o un attacco minimizzando i danni o scoprendo e segnalando l'evento.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Terminologia aggiuntiva (da PDF2, Slide 35)}
+    \begin{itemize}
+        \item \textbf{TOE (Target of Evaluation):} Sistema o risorsa su cui viene verificata una vulnerabilità.
+        \item \textbf{Attack:} Attacco all’obiettivo (al TOE).
+        \item \textbf{Exploit:} È la via per fare breccia nella sicurezza di un sistema.
+        \item \textbf{Payload:} È il codice che viene veicolato dall’exploit.
+        \item \textbf{Zero Day:} Vulnerabilità della quale non esiste ancora una patch.
+        \item \textbf{Hardening:} Rimuovere servizi e applicazioni non necessarie per ridurre la superficie di attacco.
+    \end{itemize}
+\end{frame}
+
+
+% --- SECTION 2 ---
+\section{Minacce Informatiche}
+
+\begin{frame}
+  \frametitle{Tipi comuni di malware (PDF1, S8; PDF2, S55-60)}
+  Software dannoso progettato per danneggiare o rubare dati (malevolent software).
+  \begin{itemize}
+    \item \textbf{Virus:} Codice che si diffonde copiandosi in altri programmi o aree del disco. Richiede un'azione dell'utente per attivarsi (es. aprire un file infetto). (PDF2, S57)
+    \item \textbf{Worm:} Si auto-replica e diffonde attraverso le reti, spesso sfruttando vulnerabilità, senza intervento umano. Può rallentare i sistemi. (PDF2, S58)
+    \item \textbf{Trojan Horse:} Software che appare legittimo ma nasconde funzionalità dannose. (PDF2, S56)
+    \item \textbf{Spyware:} Raccoglie informazioni sull'utente (abitudini, password) e le invia a terzi. (PDF2, S59)
+    \item \textbf{Adware:} Mostra pubblicità indesiderata, può tracciare l'utente. (PDF2, S59)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tipi comuni di malware (Continua)}
+  \begin{itemize}
+    \item \textbf{Ransomware:} Cripta i file dell'utente o blocca l'accesso al sistema, chiedendo un riscatto per ripristinarli. (PDF1, S8)
+    \item \textbf{Rootkit e Bootkit:}
+    \begin{itemize}
+        \item \textbf{Rootkit:} Software progettato per nascondere la sua presenza e quella di altro malware, ottenendo privilegi elevati. (PDF2, S56)
+        \item \textbf{Bootkit:} Variante di rootkit che infetta il Master Boot Record (MBR) o il Volume Boot Record (VBR), attivandosi prima del sistema operativo.
+    \end{itemize}
+     \item \textbf{Keylogger:} Registra i tasti premuti sulla tastiera, spesso per rubare password. (PDF2, S60)
+     \item \textbf{Botnet:} Rete di computer infetti (zombie) controllati da un "botmaster" per attacchi coordinati (es. DDoS). (PDF2, S60)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Phishing e Ingegneria Sociale}
+  \textbf{Phishing (PDF1, S4; PDF2, S85):}
+  \begin{itemize}
+    \item Tentativo fraudolento di ottenere informazioni sensibili (password, dati finanziari) mascherandosi da entità affidabile.
+    \item Tecniche: E-mail, SMS (smishing), chiamate (vishing).
+    \item Messaggi contengono spesso link a siti fasulli, identici all'originale ma con URL diverso.
+    \item \textbf{Pharming (cloni):} Tecnica che reindirizza il traffico da un sito legittimo a uno fasullo, spesso modificando i DNS o file hosts.
+  \end{itemize}
+  \pause
+  \textbf{Ingegneria Sociale (PDF1, S9; PDF2, S50-51):}
+  \begin{itemize}
+    \item Manipolazione psicologica per ottenere informazioni o accesso non autorizzato.
+    \item Sfrutta la tendenza umana a fidarsi o la mancanza di consapevolezza.
+    \item Esempio: Attaccante si finge tecnico per farsi rivelare password.
+    \item Altre tecniche: Pretexting, Baiting, Quid pro quo.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Attacchi informatici comuni}
+  \begin{itemize}
+    \item \textbf{Denial of Service (DoS):} Sovraccaricare un servizio con traffico per renderlo indisponibile agli utenti legittimi.
+    \item \textbf{Distributed Denial of Service (DDoS):} DoS condotto da molteplici sistemi compromessi (spesso una botnet).
+    \item \textbf{Man-in-the-Middle (MitM):} L'attaccante si interpone segretamente tra due parti che comunicano, potendo intercettare o modificare i dati.
+    \item \textbf{SQL Injection (SQLi):} Inserimento di codice SQL malevolo in query verso un database per manipolarlo o estrarre dati.
+    \item \textbf{Cross-Site Scripting (XSS):} Iniezione di script malevoli in pagine web visualizzate da altri utenti, spesso per rubare sessioni o dati.
+    \item \textbf{Zero-day exploits:} Attacchi che sfruttano vulnerabilità non ancora note al produttore o per cui non esiste patch. (PDF2, S35)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tecniche di prevenzione e protezione malware}
+  (PDF2, S61-63)
+  \begin{itemize}
+    \item \textbf{Software antivirus e anti-malware:}
+    \begin{itemize}
+        \item Controlla file e cartelle per individuare e neutralizzare file infetti.
+        \item Scansiona la RAM per impedire l'esecuzione di codice virale.
+        \item Riconosce malware tramite firme (database di definizioni) o metodi euristici (analisi comportamentale).
+        \item \alert{Fondamentale mantenere il software e le definizioni aggiornate.}
+        \item Nessun antivirus è sicuro al 100\%.
+        \item Utile: \url{www.virustotal.com} per analizzare file sospetti.
+    \end{itemize}
+    \item \textbf{Firewall (personale e di rete):} Vedi Sezione 3.
+    \item \textbf{Intrusion Detection/Prevention Systems (IDS/IPS):} Vedi Sezione 3.
+    \item \textbf{Valutazione della vulnerabilità e Penetration Testing (PDF2, S17-19, S27):}
+    \begin{itemize}
+        \item \textbf{Vulnerability Assessment:} Processo per identificare problemi di protezione del software e intervenire (es. patching).
+        \item \textbf{Penetration Testing (Ethical Hacking):} Simulazione di attacchi per scoprire vulnerabilità.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% --- SECTION 3 ---
+\section{Tecniche e Strumenti di Sicurezza Informatica}
+
+\begin{frame}
+  \frametitle{Password e autenticazione (PDF1, S5)}
+  Le password sono il fondamento della sicurezza. Evitare di usare la stessa password su più siti.
+  \begin{itemize}
+    \item \textbf{Creazione di password sicure:}
+    \begin{itemize}
+        \item \textbf{Lunghezza:} Almeno 12-16 caratteri.
+        \item \textbf{Complessità:} Combinazione di lettere maiuscole, minuscole, numeri e caratteri speciali.
+        \item \textbf{Casualità/Unicità:} Evitare informazioni personali, parole comuni. Usare frasi mnemoniche.
+        \item \textbf{Gestione:} Utilizzare un \textbf{Password Manager} per generare e memorizzare password complesse e uniche per ogni servizio.
+    \end{itemize}
+    \item \textbf{Autenticazione a due fattori (2FA) (PDF1, S12; PDF2, S87-91):}
+    \begin{itemize}
+        \item Aggiunge un secondo livello di sicurezza oltre la password.
+        \item Richiede due forme di verifica: qualcosa che l'utente \textit{conosce} (password) E qualcosa che l'utente \textit{possiede} (token, app) O qualcosa che l'utente \textit{è} (biometria).
+        \item Anche se la password è compromessa, l'accesso rimane protetto.
+        \item Tipi: SMS (meno sicuro), app autenticator (Google Auth, Authy), token hardware, biometria.
+    \end{itemize}
+    \item \textbf{Autenticazione biometrica:} Impronte digitali, riconoscimento facciale, scansione dell'iride.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Crittografia (PDF1, S11; PDF2, S82, S99-100)}
+  Processo di conversione di dati in codice per renderli incomprensibili agli estranei. Dal greco \textit{kryptós} (nascosto) e \textit{gráphein} (scrivere).
+  \begin{itemize}
+    \item \textbf{Significato nelle comunicazioni:} Protegge le informazioni sensibili durante la trasmissione.
+    \item \textbf{Cifrario simmetrico:} Usa la stessa chiave per cifrare e decifrare. Veloce, ma la gestione sicura della chiave è critica.
+    \item \textbf{Cifrario asimmetrico (a chiave pubblica):} Usa una coppia di chiavi (pubblica per cifrare, privata per decifrare). Più lento, ma risolve il problema della distribuzione della chiave.
+    \item \textbf{Funzioni hash:} Creano un "impronta digitale" di lunghezza fissa (digest) da dati di input. Irreversibili, usate per verificare l'integrità dei dati.
+    \item \textbf{Certificati digitali e HTTPS:}
+    \begin{itemize}
+        \item I certificati digitali legano una chiave pubblica a un'identità (persona, server). Emessi da Certificate Authorities (CA).
+        \item \textbf{HTTPS (HTTP Secure):} Usa SSL/TLS per crittografare la comunicazione tra browser e server web. Esempio: uso di HTTPS al posto di HTTP.
+    \end{itemize}
+    \item \textbf{Applicazioni:} Crittografia di email (PGP/GPG), file (VeraCrypt), dischi (BitLocker, FileVault), comunicazioni sicure (SSL/TLS, VPN).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Aggiornamenti e patch (PDF1, S6)}
+  Aggiornare il software è importante. Un software aggiornato ha meno vulnerabilità di uno obsoleto.
+  \begin{itemize}
+    \item \textbf{Importanza degli aggiornamenti software:}
+    \begin{itemize}
+        \item Correzione di vulnerabilità note che potrebbero essere sfruttate da hacker.
+        \item Rilasci di sicurezza (patch) mirano a risolvere falle di sicurezza specifiche.
+        \item Miglioramenti di stabilità e funzionalità.
+    \end{itemize}
+    \item \textbf{Gestione degli aggiornamenti:}
+    \begin{itemize}
+        \item Abilitare aggiornamenti automatici per sistema operativo e applicazioni principali.
+        \item Verificare periodicamente la disponibilità di aggiornamenti per altro software.
+    \end{itemize}
+    \item \textbf{Strategie di Patch Management (per organizzazioni):} Processo sistematico per identificare, acquisire, testare e installare patch.
+  \end{itemize}
+  \begin{block}{Obiettivo}
+  È importantissimo capire che gli aggiornamenti spesso correggono vulnerabilità che potrebbero essere sfruttate da hacker. Farlo regolarmente evita sorprese spiacevoli.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Firewall (PDF1, S7; PDF2, S67)}
+  Barriera di sicurezza (hardware o software) che controlla il traffico di rete in entrata e uscita, basandosi su regole predefinite.
+  \begin{itemize}
+    \item \textbf{Ruolo nella protezione:}
+    \begin{itemize}
+        \item Filtra il traffico indesiderato o potenzialmente dannoso.
+        \item Previene accessi non autorizzati alla rete interna.
+        \item Può bloccare la comunicazione di malware verso l'esterno.
+    \end{itemize}
+    \item \textbf{Tipi di Firewall:}
+    \begin{itemize}
+        \item \textbf{Hardware:} Dispositivi dedicati, spesso posti al perimetro della rete.
+        \item \textbf{Software (Personale):} Installato su singoli computer.
+        \item Packet-filtering, Stateful inspection, Proxy-based, Next-Generation Firewalls (NGFW).
+    \end{itemize}
+    \item \textbf{Limiti:} Un firewall non è efficace contro attacchi interni o malware già presente. L'efficacia dipende dalla corretta configurazione delle regole.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Altri Strumenti di Sicurezza di Rete (da PDF2)}
+    \begin{itemize}
+        \item \textbf{Intrusion Detection System (IDS) (PDF2, S70):} Monitora il traffico di rete o le attività di sistema per attività sospette o violazioni delle policy e genera un alert.
+        \item \textbf{Intrusion Prevention System (IPS) (PDF2, S71):} Simile all'IDS, ma può anche bloccare attivamente il traffico dannoso rilevato.
+        \item \textbf{Network Access Control (NAC) (PDF2, S72-73):} Limita l'accesso alla rete in base a policy di sicurezza (es. stato di aggiornamento dell'antivirus del client).
+        \item \textbf{Virtual Private Network (VPN) (PDF1, S11; PDF2, S74):} Crea un tunnel crittografato su una rete pubblica (Internet) per comunicazioni sicure, estendendo una rete privata.
+        \item \textbf{Transport Layer Security (TLS) (PDF2, S75):} Protocollo che fornisce privacy e integrità dei dati tra due applicazioni comunicanti (es. HTTPS).
+    \end{itemize}
+\end{frame}
+
+
+% --- SECTION 4 ---
+\section{Best Practice per la Sicurezza Informatica}
+
+\begin{frame}
+  \frametitle{Utilizzo di software e reti sicuri}
+  \begin{itemize}
+    \item \textbf{Scelta di software affidabile e sicuro:}
+    \begin{itemize}
+        \item Scaricare software solo da fonti ufficiali e attendibili.
+        \item Leggere recensioni e verificare la reputazione del produttore.
+        \item Evitare software pirata o "craccato" (spesso contiene malware).
+    \end{itemize}
+    \item \textbf{Navigazione web sicura:}
+    \begin{itemize}
+        \item Verificare la presenza di \textbf{HTTPS} (lucchetto nel browser).
+        \item Essere cauti con link e allegati, specialmente da fonti non richieste.
+        \item Utilizzare estensioni del browser per la sicurezza (adblocker, anti-tracker).
+    \end{itemize}
+    \item \textbf{Configurazione sicura delle reti Wi-Fi (PDF2, S81):}
+    \begin{itemize}
+        \item Cambiare la password di default dell'amministratore del router.
+        \item Usare crittografia \textbf{WPA3} (o WPA2-AES se WPA3 non disponibile).
+        \item Utilizzare una password robusta per la rete Wi-Fi.
+        \item Disabilitare WPS se non necessario.
+    \end{itemize}
+    \item \textbf{Utilizzo di Virtual Private Networks (VPN) (PDF1, S11):} Specialmente su reti Wi-Fi pubbliche, per crittografare il traffico.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Utilizzo di dispositivi sicuri}
+  \begin{itemize}
+    \item \textbf{Configurazione della sicurezza di smartphone, tablet e computer:}
+    \begin{itemize}
+        \item \textbf{Blocco schermo:} Utilizzare PIN, password, pattern robusti o biometria.
+        \item \textbf{Crittografia del dispositivo:} Attivare la crittografia completa del disco/memoria (spesso attiva di default sui moderni smartphone).
+        \item \textbf{Aggiornamenti:} Mantenere sistema operativo e app aggiornati.
+        \item \textbf{Antivirus/Anti-malware:} Installare e mantenere aggiornato (specialmente su PC e Android).
+    \end{itemize}
+    \item \textbf{Installazione di app da fonti affidabili:}
+    \begin{itemize}
+        \item Utilizzare gli store ufficiali (Google Play Store, Apple App Store).
+        \item Controllare le recensioni e i permessi richiesti dall'app prima di installare.
+    \end{itemize}
+    \item \textbf{Gestione dei permessi delle app:}
+    \begin{itemize}
+        \item Concedere solo i permessi strettamente necessari al funzionamento dell'app.
+        \item Rivedere periodicamente i permessi concessi.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pratiche per la protezione dei dati online (PDF1, S10)}
+  Molti dati personali si trovano già su Internet. Evitare di arricchire ulteriormente le informazioni presenti.
+  \begin{itemize}
+    \item \textbf{Privacy sui social media:}
+    \begin{itemize}
+        \item Configurare attentamente le impostazioni sulla privacy.
+        \item Limitare le informazioni personali condivise pubblicamente.
+        \item Essere selettivi nell'accettare richieste di amicizia/contatto.
+        \item Esempio di rischio: "Vado in vacanza e lo scrivo su Facebook", "Pubblico le foto di casa mia su Internet".
+    \end{itemize}
+    \item \textbf{Gestione dei cookie e della cronologia di navigazione:}
+    \begin{itemize}
+        \item Comprendere come i siti usano i cookie per tracciare.
+        \item Cancellare periodicamente cookie e cronologia o usare modalità di navigazione privata.
+    \end{itemize}
+    \item \textbf{Attenzione al phishing e ad altre truffe online:} Essere scettici verso email, messaggi o telefonate che richiedono dati personali o azioni urgenti.
+    \item \textbf{Backup regolari dei dati:}
+    \begin{itemize}
+        \item Eseguire backup periodici di dati importanti su supporti esterni o cloud sicuri.
+        \item Verificare che i backup siano ripristinabili.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ulteriori Best Practices (da PDF2, S12)}
+    \begin{itemize}
+        \item \textbf{Patching dei S.O. e delle applicazioni:} Già discusso, ma fondamentale.
+        \item \textbf{Antivirus:} Già discusso.
+        \item \textbf{Uso di utenze a basso privilegio:} Non usare account amministratore per le attività quotidiane.
+        \item \textbf{Start dei servizi con utenze non privilegiate:} Configurare i servizi per operare con i minimi privilegi necessari.
+        \item \textbf{Hardening:} Rimuovere software e servizi non necessari per ridurre la superficie d'attacco.
+        \item \textbf{Amministratori locali con password diversa:} Ogni sistema dovrebbe avere password admin locali uniche.
+        \item \textbf{Personal Firewall settato correttamente:} Già discusso.
+        \item \textbf{Policy di sicurezza:} Definire e seguire chiare policy di sicurezza aziendali o personali.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sicurezza dei File (da PDF2, S53-54)}
+    \begin{itemize}
+        \item \textbf{Macro di sicurezza:}
+            \begin{itemize}
+                \item Una macro è un insieme di istruzioni per automatizzare task.
+                \item Le macro possono contenere codice malevolo.
+                \item Disabilitare le macro di default. Attivarle solo se si è certi dell'origine del file.
+            \end{itemize}
+        \item \textbf{Cifratura dei file:}
+            \begin{itemize}
+                \item Protegge i dati da accessi indesiderati se il file viene rubato.
+                \item Scegliere password robuste per la cifratura.
+                \item Rischio: se si dimentica la password, il file potrebbe essere irrecuperabile.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% --- Conclusion Slide ---
+\begin{frame}
+  \frametitle{Conclusioni: Cyber-Sicurezza è... (PDF2, S69)}
+  \begin{block}{La sicurezza informatica (information security) è:}
+  L'insieme dei mezzi e delle tecnologie tesi alla protezione dei sistemi informatici in termini di \textbf{disponibilità}, \textbf{confidenzialità} e \textbf{integrità} dei beni o asset informatici.
+  A questi si aggiunge spesso l'\textbf{autenticità} delle informazioni.
+  \end{block}
+  \pause
+  \begin{block}{Coinvolge elementi:}
+  Tecnici, organizzativi, giuridici e \textbf{umani}.
+  \end{block}
+  \pause
+  \begin{alertblock}{Cyber-Sicurezza non è (solo) (PDF2, S68):}
+  Crittografia, Firewall, IDS/IPS, Antivirus, Password, Smartcard, o superare esami di certificazione. È un processo continuo e una mentalità.
+  \end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Domande e Contatti}
+  \centering
+  \Large Grazie per l'attenzione!
+  \vspace{2em}
+
+  \textbf{Linuxservizi } \\
+  \texttt{www.corsilinux.it} \\
+  \vspace{1em}
+  \small
+ Roma - Sede Amministrativa \\
+  Largo Giovanni Pittaluga,15  \\
+  00159 Roma (RM) - Italy \\
+  \vspace{0.5em}
+  General Inquiries \\
+  Phone: +39 3392835668 \\
+  Email: mauro.tedesco@linuxservizi.com
+  
+  \vspace{2em}
+  \tiny{Le informazioni contenute in questo documento sono di proprietà di Linuxservizi e delle altre società ove indicato. 
+  Questo documento può essere riprodotto, pubblicato o distribuito secondo la licenza Creative Comons.}
+\end{frame}
+
+\end{document}
